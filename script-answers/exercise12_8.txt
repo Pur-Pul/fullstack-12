@@ -1,0 +1,85 @@
+Script started on 2025-04-07 12:01:14+03:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="127" LINES="17"]
+[?2004h]0;purpul@purpul-ThinkPad-T490: ~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[01;32mpurpul@purpul-ThinkPad-T490[00m:[01;34m~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[00m$ docker container ls
+[?2004lCONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS         PORTS                     NAMES
+0786636f586b   mongo     "docker-entrypoint.s…"   About an hour ago   Up 3 minutes   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+[?2004h]0;purpul@purpul-ThinkPad-T490: ~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[01;32mpurpul@purpul-ThinkPad-T490[00m:[01;34m~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[00m$ docker exec -it todo-backend-mongo-1 mongosh -u tooy[K[K[K[Kroot -p example
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	67f39488a9a8cdf67f6b140a
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.4.2[0m
+Using MongoDB:		8.0.6
+[1m[33mUsing Mongosh[0m:		2.4.2
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+[1G[0J [1G[?2004h[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2025-04-07T08:57:47.527+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2025-04-07T08:57:48.696+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2025-04-07T08:57:48.696+00:00: We suggest setting the contents of sysfsFile to 0.
+   2025-04-07T08:57:48.696+00:00: vm.max_map_count is too low
+   2025-04-07T08:57:48.696+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m        108.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find(/[1G[0Jthe_database> db.todos.find([29G{})
+[
+  {
+    _id: ObjectId([32m'67f38330b0f7dad4266b140b'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67f38330b0f7dad4266b140c'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'67f38b176451e8a506ed3e2b'[39m),
+    text: [32m'new todo edit edit'[39m,
+    done: [33mtrue[39m,
+    __v: [33m0[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.create({text[33mtext[39m: [32m"[39m[32mE[39m[32mx[39m[32me[39m[32mr[39m[32mc[39m[32mi[39m[32ms[39m[32me[39m [32m1[39m[32m2[39m[32m.[39m[32m8[39m[32m"[39m, d[36mdo[39mdone: fals[33mfalse[39m=[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: [33mfalse[39m[66G}[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: [33mfalse[39m[66G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: fals[65G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: fal[64G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: fa[63G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: f[62G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m: [61G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [33mdone[39m:[60G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, done[59G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, don[58G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [36mdo[39m[57G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, d[56G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m, [55G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m,[54G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8"[39m[53G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.8[39m[52G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12.[39m[51G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 12[39m[50G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise 1[39m[49G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise [39m[48G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercise[39m[47G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exercis[39m[46G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exerci[39m[45G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exerc[39m[44G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exer[39m[43G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Exe[39m[42G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Ex[39m[41G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"E[39m[40G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"[39m[39G[32mi[39m[32mn[39m[32ms[39m[32me[39m[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"ins[39m[42G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"in[39m[41G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"i[39m[40G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"[39m[39G[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, d[36mdo[39mdone: fals[33mfalse[39m=[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m[97G})
+Uncaught [1m[31mTypeError[0m: db.todos.create is not a function
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[99G[1D[1G[0Jthe_database> db.todos.create[44m([49m{[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[98G[1D[1G[0Jthe_database> db.todos.create([44m{[49m[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[97G[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[96G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[83G[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[82G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt[44m"[39m[49m, [33mdone[39m: [33mfalse[39m})[38G[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[37G[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m[44m}[49m)[31G[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[30G[1D[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[29G[1D[1D[1C[1C[1C[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[30G[1G[0Jthe_database> db.todos.creat({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[29G[1G[0Jthe_database> db.todos.crea({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[28G[1G[0Jthe_database> db.todos.cre({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[27G[1G[0Jthe_database> db.todos.cr({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[26G[1G[0Jthe_database> db.todos.c({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[25G[1G[0Jthe_database> db.todos.({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[24G[1G[0Jthe_database> db.todos.i({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[25G[1G[0Jthe_database> db.todos.in({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[26G[1G[0Jthe_database> db.todos.ins({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[27G[1G[0Jthe_database> db.todos.inse({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[28G[1G[0Jthe_database> db.todos.inset({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[29G[1G[0Jthe_database> db.todos.insetr({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[30G[1G[0Jthe_database> db.todos.inset({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[29G[1G[0Jthe_database> db.todos.inse({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[28G[1G[0Jthe_database> db.todos.inser({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[29G[1G[0Jthe_database> db.todos.insert({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[30G[1G[0Jthe_database> db.todos.insertO({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[31G[1G[0Jthe_database> db.todos.insertOn({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[32G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m}[44m)[49m[33G[69C[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[102G
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'67f39597a9a8cdf67f6b140b'[39m)
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[102G[1G[0Jthe_database> db.todos.create({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m: [33mfalse[39m})[99G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'67f38330b0f7dad4266b140b'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67f38330b0f7dad4266b140c'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'67f38b176451e8a506ed3e2b'[39m),
+    text: [32m'new todo edit edit'[39m,
+    done: [33mtrue[39m,
+    __v: [33m0[39m
+  },
+  {
+    _id: ObjectId([32m'67f39597a9a8cdf67f6b140b'[39m),
+    text: [32m'Increase the number of tools in my tool belt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+[?2004l[?2004h]0;purpul@purpul-ThinkPad-T490: ~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[01;32mpurpul@purpul-ThinkPad-T490[00m:[01;34m~/Documents/fullstack/part12-containers-applications/todo-app/todo-backend[00m$ exit
+[?2004lexit
+
+Script done on 2025-04-07 12:06:48+03:00 [COMMAND_EXIT_CODE="0"]
