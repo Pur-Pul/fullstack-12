@@ -8,6 +8,8 @@ services:
       - ./todo-frontend:/usr/src/app
       - node_modules_front:/usr/src/app/node_modules
     container_name: todo-front-dev
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8080/api/
 
   mongo:
     image: mongo
