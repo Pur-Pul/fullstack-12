@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon -L ./bin/www"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
   }
 }
