@@ -1,16 +1,4 @@
 services:
-  front:
-    image: bloglist-front-dev
-    build:
-      context: frontend
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ./frontend:/usr/src/app
-      - node_modules_front:/usr/src/app/node_modules
-    container_name: bloglist-front-dev
-    environment:
-      - BACKEND_URL=http://localhost:8080/api/
-
   mongo:
     image: mongo
     environment:
@@ -22,16 +10,15 @@ services:
       - mongo_data:/data/db
 
   back:
-    image: bloglist-back-dev
+    image: bloglist-back
     build:
       context: backend
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./backend:/usr/src/app
       - node_modules_back:/usr/src/app/node_modules
-    container_name: bloglist-back-dev
+    container_name: bloglist-back
     environment:
-      - NODE_ENV=developement
       - PORT=3003
       - SECRET=z49pw1sefgxjt5ahh7rr
       - MONGODB_URI=mongodb://the_username:the_password@mongo:27017/the_database
@@ -39,10 +26,22 @@ services:
     depends_on:
       - mongo
 
+  front:
+    image: bloglist-front
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+      - node_modules_front:/usr/src/app/node_modules
+    container_name: bloglist-front
+    depends_on:
+      - back
+
   nginx:
     image: nginx:1.20.1
     volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     container_name: reverse-proxy
